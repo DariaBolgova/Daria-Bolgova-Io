@@ -1,0 +1,126 @@
+body {
+    background-color: #ffe8e2;
+    margin: 0;
+}
+
+section {
+    padding: 10px;
+    margin: 10px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #2c6e49;
+    font-family: "Bona Nova SC", serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.wrapper {
+    margin-top: 60px; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    grid-template-rows: 50px, 90px, 200px, 30px;
+}
+
+#Name {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#About {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#Experience {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#Connect {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+#Photo {
+    grid-column: 2;
+    grid-row: 1 / 5;
+}
+
+#Photo img {
+    width: 300px;
+    height: auto;
+    margin-top: 30px; 
+}
+
+h1, h2 {
+    font-family: "Bona Nova SC", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 5px;
+}
+
+h1 {
+    color: #e80e48;
+    font-size: 40px;
+    font-weight: 650;
+    text-align: center;
+}
+
+h2 {
+    color: #4c956c;
+    font-size: 34px;
+    font-weight: 500;
+}
+
+p, ul {
+    color: #795e56;
+    font-family: "Wittgenstein", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    margin-left: 20px;
+    padding: 0;
+}
+
+#Connect {
+    display: flex;
+    margin-top: 20px;
+}
+
+#Connect img {
+    height: 25px;
+    width: auto;
+}
+
+#Connect ul {
+    display: flex;
+    gap: 30px;
+}

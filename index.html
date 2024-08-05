@@ -1,27 +1,42 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
-    <head>
-        <title>Daria Bolgova's Portfolio Project</title>
-        <meta charset="UTF-8">
-        <meta name="description" content="Personal Website, Portfolio Project">
-        <meta name="keywords" content="HTML, CSS, JavaScript, Website, Portfolio, Project, Code the Dream">
-        <meta name="author" content="Daria Bolgova">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<head>
+    <title>Daria Bolgova's Portfolio Project</title>
 
-    <body>
+    <meta charset="UTF-8">
+    <meta name="description" content="Personal Website, Portfolio Project">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Website, Portfolio, Project, Code the Dream">
+    <meta name="author" content="Daria Bolgova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <h1>Daria Bolgova</h1>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Dosis:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+DE+Grund:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./CSS/index.css">
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Experience">Experience</a></li>
+            <li><a href="#Connect">Connect</a></li>
+        </ul>
+    </nav>
+
+    <div class="wrapper">
+
+        <section id="Name">
+            <h1>Daria Bolgova</h1>
+        </section>
 
         <section id="About">
             <h2>About</h2>
             <p>Hi! I am a PhD student and a Nuclear Engineer. I am learning coding with <a href="https://codethedream.org/">Code the Dream</a>.</p>
-        </section>
-
-        <section id="Photo">
-            <img src="./images/daylight_photo.png" alt="A digital drawing of me: a woman with long, straight hair, wearing glasses and a green shirt, against a peach-colored background" height="364" width="241">
         </section>
 
         <section id="Experience">
@@ -35,14 +50,27 @@
             </ul>
         </section>
 
+        <section id="Photo">
+            <img src="./images/daylight_photo.png" alt="A digital drawing of me: a woman with long, straight hair, wearing glasses and a green shirt, against a peach-colored background">
+        </section>
+
         <section id="Connect">
-            <h2>Connect</h2>
-            <ul style="list-style-type:none;">
-                <li><a href="mailto:bolgovadl@gmail.com">bolgovadl@gmail.com</a></li>
-                <li><a href="https://github.com/DariaBolgova">GitHub</a></li>
+            <ul>
+                <li>
+                    <a href="mailto:bolgovadl@gmail.com">
+                        <img src="./images/email_icon.png" alt="Email icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/DariaBolgova">
+                        <img src="./images/github_icon.png" alt="Github icon">
+                    </a>
+                </li>
             </ul>
         </section>
 
-    </body>
+    </div>
+
+</body>
 
 </html>
