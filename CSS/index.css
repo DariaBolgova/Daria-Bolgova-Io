@@ -67,7 +67,7 @@ section {
 }
 
 nav {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -402,7 +402,7 @@ ul {
         background: none;
         border: none;
         cursor: pointer;
-        position: fixed;
+        position: absolute;
         top: 0px;
         left: 30px;
         color: var(--text-2-light);
@@ -712,4 +712,5 @@ ul {
         margin-left: 0;
         margin-right: 20px;
     }
+    
 }
