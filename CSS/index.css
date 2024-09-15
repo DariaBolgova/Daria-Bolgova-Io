@@ -285,6 +285,13 @@ a {
     width: 40px;
 }
 
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
 /* Dark Mode */
 
 body.dark-mode {
