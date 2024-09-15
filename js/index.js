@@ -11,6 +11,8 @@ const emailIconLight = document.getElementById('email-icon-light');
 const emailIconDark = document.getElementById('email-icon-dark');
 const githubIconLight = document.getElementById('github-icon-light');
 const githubIconDark = document.getElementById('github-icon-dark');
+const messageIconLight = document.getElementById('message-icon-light');
+const messageIconDark = document.getElementById('message-icon-dark');
 
 // Theme toggle click handler
 themeToggle.addEventListener('click', function() {
@@ -27,6 +29,8 @@ themeToggle.addEventListener('click', function() {
         emailIconDark.style.display = 'block';
         githubIconLight.style.display = 'none';
         githubIconDark.style.display = 'block';
+        messageIconLight.style.display = 'none';
+        messageIconDark.style.display = 'block';
     } else {
         darkIcon.style.display = 'block';
         lightIcon.style.display = 'none';
@@ -38,6 +42,8 @@ themeToggle.addEventListener('click', function() {
         emailIconDark.style.display = 'none';
         githubIconLight.style.display = 'block';
         githubIconDark.style.display = 'none';
+        messageIconLight.style.display = 'block';
+        messageIconDark.style.display = 'none';
     }
 
     // Toggle sound
@@ -83,22 +89,12 @@ footer.appendChild(copyright);
 // Skills
 
 const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Python", "Fortran"];
-
-// Step 2: Select the skills section by ID
 const skillsSection = document.getElementById('Skills');
-
-// Step 3: Select the <ul> element inside the skills section
 const skillsList = skillsSection.querySelector('ul');
 
-// Step 4: Iterate over the skills array
 skills.forEach(skillName => {
-    // Step 5: Create a new list item element
     const skill = document.createElement('li');
-    
-    // Set the text of the list item to the current skill
     skill.innerText = skillName;
-    
-    // Step 6: Append the skill element to the skills list
     skillsList.appendChild(skill);
 });
 
