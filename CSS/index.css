@@ -390,6 +390,14 @@ ul {
     margin-left: 70px;
     padding: 0;
     list-style-type: none;
+    font-family: var(--text-font);
+    font-weight: var(--text-1-font-weight);
+    font-size: var(--text-1-font-size);
+}
+
+#Skills ul {
+    list-style-type: square;
+    margin-left: 85px;
 }
 
 @media (max-width: 900px) {
@@ -528,6 +536,10 @@ ul {
         margin-left: 40px;
     }
 
+    #Skills ul {
+        margin-left: 55px;
+    }
+
     h1 {
         font-size: 30px;
     }
@@ -628,6 +640,10 @@ ul {
 
     h1, h2, p, ul {
         margin-left: 20px;
+    }
+
+    #Skills ul {
+        margin-left: 35px;
     }
 
     h1 {

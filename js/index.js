@@ -79,3 +79,26 @@ const copyright = document.createElement('p');
 copyright.innerHTML = `&copy; ${thisYear} Daria Bolgova`;
 
 footer.appendChild(copyright);
+
+// Skills
+
+const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Python", "Fortran"];
+
+// Step 2: Select the skills section by ID
+const skillsSection = document.getElementById('Skills');
+
+// Step 3: Select the <ul> element inside the skills section
+const skillsList = skillsSection.querySelector('ul');
+
+// Step 4: Iterate over the skills array
+skills.forEach(skillName => {
+    // Step 5: Create a new list item element
+    const skill = document.createElement('li');
+    
+    // Set the text of the list item to the current skill
+    skill.innerText = skillName;
+    
+    // Step 6: Append the skill element to the skills list
+    skillsList.appendChild(skill);
+});
+
