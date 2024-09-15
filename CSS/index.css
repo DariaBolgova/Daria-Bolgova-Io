@@ -1,21 +1,79 @@
+:root {
+
+    /* Colors */
+
+    /* Light style */
+    --background-light: #ffe8e2;
+    --button-light: #ff6f61;
+    --heading-1-light: #e80e48;
+    --heading-2-light: #4c956c;
+    --heading-3-light: #2c6e49;
+    --text-1-light: #795e56;
+    --text-2-light: #3c231b;
+    --accent-light: #8c9e5e;
+
+    /* Dark style */
+    --background-dark: #010010;
+    --button-dark: #a6d79c;
+    --heading-1-dark: #79b3ff;
+    --heading-2-dark: #3f863f;
+    --heading-3-dark: #f2e7b9;
+    --text-1-dark: #e4c981;
+    --text-2-dark: #8cbd50;
+    --accent-dark: #3485e0;
+
+    /* Fonts */
+
+    --heading-font: "Bona Nova SC", serif;
+    --nav-font-weight: 600;
+    --nav-font-size: 20px;
+    --heading-1-font-weight: 650;
+    --heading-1-font-size: 40px;
+    --heading-2-font-weight: 500;
+    --heading-2-font-size: 30px;
+    --heading-3-font-weight: 700;
+    --heading-3-font-size: 34px;
+
+    --text-font: "Wittgenstein", serif;
+    --text-1-font-weight: 600;
+    --text-1-font-size: 15px;
+    --text-2-font-weight: 450;
+    --text-2-font-size: 15px;
+
+    /* Indices */
+
+    --z-index-nav: 1000;
+    --z-index-hamburger: 1001;
+    --z-index-toggle: 1002;
+    --z-index-menu: 1003;
+}
+
+/* Desktop Style */
+
+/* Light Mode */
+
 body {
-    background-color: #ffe8e2;
     margin: 0;
+    background-color: var(--background-light);
+}
+
+#photo-dark, #email-icon-dark, #github-icon-dark {
+    display: none;
 }
 
 section {
     padding: 10px;
-    margin: 10px;
+    scroll-margin-top: 80px;
 }
 
 nav {
-    position: fixed;
+    position: sticky;
     top: 0;
-    right: 0;
-    padding: 10px 20px;
-    margin-right: 10px;
-    background-color: transparent;
-    z-index: 1000;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    z-index: var(--z-index-nav);
+    background-color: var(--background-light);
 }
 
 nav ul {
@@ -23,23 +81,71 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 30px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #2c6e49;
-    font-family: "Bona Nova SC", serif;
-    font-weight: 600;
-    font-size: 20px;
+    color: var(--heading-3-light);
+    font-family: var(--heading-font);
+    font-weight: var(--nav-font-weight);
+    font-size: var(--nav-font-size);
+    margin: 0px;
+    padding: 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+a {
+    color: var(--button-light);
+    text-decoration: none;
+}
+
+@media (hover: hover) {
+    nav ul li a:hover {
+        background-color: var(--button-light);
+        color: var(--background-light);
+    }
+    
+    a:hover {
+        color: var(--accent-light);
+    }
+}
+
+@media (hover: none) {
+    nav ul li a {
+        transition: background-color 0.01s ease-in, color 0.5s ease;
+    }
+
+    nav ul li a:active {
+        background-color: var(--button-light);
+        color: var(--background-light);
+    }
+
+    a:active {
+        color: var(--accent-light);
+    }
+
+    body.dark-mode nav ul li a:active {
+        background-color: var(--button-dark);
+        color: var(--background-dark);
+    }
+
+    body.dark-mode a:active {
+        color: var(--accent-dark);
+    }
+}
+
+/* Main Page Layout */
+
 .wrapper {
-    margin-top: 60px; 
+    margin-top: 80px; 
     display: grid;
-    grid-template-columns: 2fr 1.5fr;
-    gap: 20px;
-    grid-template-rows: 50px, 90px, 300px, 30px;
+    grid-template-columns: 2.2fr 1.2fr;
+    grid-template-rows: 50px, 90px, 350px, 30px;
+    gap: 10px;
 }
 
 #Name {
@@ -75,10 +181,13 @@ nav ul li a {
 #Photo {
     grid-column: 2;
     grid-row: 1 / 5;
+    display: flex;
+    justify-content: center;
     position: fixed;
-    top: 42%;
-    left: calc(75% - 150px);
+    top: 350px;
+    right: 7%;
     transform: translateY(-50%);
+    width: calc(100% - 80%);
 }
 
 #Photo img {
@@ -86,71 +195,17 @@ nav ul li a {
     height: auto;
 }
 
-h1, h2 {
-    font-family: "Bona Nova SC", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    margin: 5px;
-}
-
-h1 {
-    color: #e80e48;
-    font-size: 40px;
-    font-weight: 650;
-    text-align: center;
-}
-
-h2 {
-    color: #4c956c;
-    font-size: 34px;
-    font-weight: 500;
-}
-
-p, ul {
-    color: #795e56;
-    font-family: "Wittgenstein", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-size: 15px;
-    font-weight: 600;
-    margin-left: 20px;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    margin-left: 20px;
-    padding: 0;
-}
+/* Experience Section Layout */
 
 #Experience .job {
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 70px;
 }
 
 #Experience .job-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-}
-
-#Experience .job-title {
-    font-weight: 700;
-    color: #2c6e49;
-    font-family: "Bona Nova SC", serif;
-}
-
-#Experience .job-location {
-    font-weight: 600;
-    color: #2c6e49;
-    font-family: "Bona Nova SC", serif;
-}
-
-#Experience .job-dates {
-    font-weight: 600;
-    color: #4c956c;
-    font-family: "Bona Nova SC", serif;
-    text-align: right;
 }
 
 #Experience .job-details {
@@ -160,23 +215,42 @@ ul {
     gap: 5px;
 }
 
-#Experience .job-position {
-    font-weight: 600;
-    color: #4c956c;
-    font-family: "Bona Nova SC", serif;
+#Experience .job-title {
+    color: var(--heading-3-light);
+    font-family: var(--heading-font);
+    font-weight: var(--heading-3-font-weight);
 }
+
+#Experience .job-location {
+    color: var(--heading-3-light);
+    font-family: var(--heading-font);
+    font-weight: var(--text-1-font-weight);
+}
+
+#Experience .job-dates {
+    color: var(--heading-2-light);
+    font-family: var(--heading-font);
+    font-weight: var(--text-1-font-weight);
+    text-align: right;
+}
+
+#Experience .job-position {
+    color: var(--heading-2-light);
+    font-family: var(--heading-font);
+    font-weight: var(--text-1-font-weight);
+}
+
 #Experience .job-description {
-    font-weight: 450;
-    color: #795e56;
-    font-family: "Wittgenstein", serif;
+    color: var(--text-1-light);
+    font-family: var(--text-font);
+    font-weight: var(--text-2-font-weight);
     margin-left: 0px;
 }
 
 #Connect {
     display: flex;
     flex-direction: column;
-    align-items: left;
-    margin-top: 20px;
+    align-items: flex-start;
 }
 
 #Connect ul {
@@ -188,7 +262,7 @@ ul {
     list-style-type: none;
 }
 
-#Connect li {
+#Connect ul li {
     list-style: none;
 }
 
@@ -197,3 +271,446 @@ ul {
     width: auto;
 }
 
+/* Theme Toggle */
+
+.theme-toggle {
+    position: fixed;
+    top: 25px;
+    right: 50px;
+    cursor: pointer;
+    z-index: var(--z-index-toggle);
+}
+
+.theme-toggle img {
+    width: 40px;
+}
+
+/* Dark Mode */
+
+body.dark-mode {
+    background-color: var(--background-dark);
+}
+
+body.dark-mode nav {
+    background-color: var(--background-dark);
+}
+
+body.dark-mode h1 {
+    color: var(--heading-1-dark);
+}
+
+body.dark-mode h2 {
+    color: var(--heading-2-dark);
+}
+
+body.dark-mode nav ul li a {
+    color: var(--heading-3-dark);    
+}
+
+body.dark-mode nav ul li a:hover {
+    background-color: var(--button-dark);
+    color: var(--background-dark);
+}
+
+body.dark-mode p,
+body.dark-mode ul {
+    color: var(--text-1-dark);
+}
+
+body.dark-mode a {
+    color: var(--button-dark);
+}
+
+body.dark-mode a:hover {
+    color: var(--accent-dark);
+}
+
+body.dark-mode #Experience .job-dates,
+body.dark-mode #Experience .job-position {
+    color: var(--heading-2-dark);
+}
+
+body.dark-mode #Experience .job-title,
+body.dark-mode #Experience .job-location {
+    color: var(--heading-3-dark);
+}
+
+body.dark-mode #Experience .job-description {
+    color: var(--text-1-dark);
+}
+
+/* Navigation for tablets and smaller screens */
+
+/* Hamburger menu icon */
+
+.hamburger {
+    display: none;
+    z-index: var(--z-index-hamburger);
+}
+
+h1, h2 {
+    font-family: var(--heading-font);
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-left: 70px;
+}
+
+h1 {
+    color: var(--heading-1-light);
+    font-weight: var(--heading-1-font-weight);
+    font-size: var(--heading-1-font-size);
+    text-align: center;
+}
+
+h2 {
+    color: var(--heading-2-light);
+    font-weight: var(--heading-2-font-weight);
+    font-size: var(--heading-2-font-size);
+}
+
+p {
+    color: var(--text-1-light);
+    font-family: var(--text-font);
+    font-weight: var(--text-1-font-weight);
+    font-size: var(--text-1-font-size);
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-left: 70px;
+}
+
+ul {
+    color: var(--text-1-light);
+    margin-left: 70px;
+    padding: 0;
+    list-style-type: none;
+}
+
+@media (max-width: 900px) {
+    
+    nav {
+        position: fixed;
+        height: 40px;
+    }
+
+    body.dark-mode nav::before {
+        background-color: var(--background-dark);
+    }
+
+    .hamburger {
+        display: flex;
+        font-size: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 0px;
+        left: 30px;
+        color: var(--text-2-light);
+        background-color: var(--background-light);
+        padding: 5px 10px;
+        width: auto;
+        height: 60px;
+        text-align: center;
+        z-index: var(--z-index-hamburger);
+    }
+
+    .theme-toggle img {
+        width: 30px;
+    }
+
+    .theme-toggle {
+        position: fixed;
+        top: 25px;
+        right: 50px;
+        z-index: var(--z-index-toggle);
+        height: 30px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    nav ul.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        width: 145px;
+        background-color: var(--background-light);
+        z-index: var(--z-index-menu);
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: left;
+        box-sizing: border-box;
+    }
+
+    nav ul.show li a.active {
+        background-color: var(--button-light);
+        color: var(--background-light);
+    }   
+
+    body.dark-mode {
+        background-color: var(--background-dark);
+    }
+
+    body.dark-mode nav ul.show {
+        background-color: var(--background-dark);
+    }
+
+    body.dark-mode nav ul li a {
+        color: var(--heading-3-dark);
+    }
+
+    body.dark-mode nav ul.show li a.active {
+        background-color: var(--button-dark);
+        color: var(--background-dark);
+    }
+
+    body.dark-mode .hamburger {
+        color: var(--text-2-dark);
+        background-color: var(--background-dark);
+    }
+
+}
+
+/* Tablet Style */
+
+@media (min-width: 500px) and (max-width: 900px) {
+        
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 20px;
+    }
+
+    #Name, #About {
+        grid-column: 1 / 2;
+        grid-row: auto;
+    }
+
+    #Photo {
+        grid-column: 2;
+        grid-row: 1 / 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 52%;
+        right: -35%;
+        transform: translateY(-50%);
+        width: calc(100% - 80%);
+    }
+
+    #Photo img {
+        width: 240px;
+    }
+
+    #Experience, #Skills, #Projects, #Connect {
+        grid-column: 1 / 3;
+        grid-row: auto;
+    }
+
+    h1, h2, p, ul {
+        margin-left: 40px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    p, ul {
+        font-size: 14px;
+    }
+
+    #Experience .job {
+        margin-top: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    #Connect ul {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    #Connect img {
+        height: 25px;
+    }
+
+}
+
+/* Mobile Style */
+
+@media (max-width: 500px) {
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+    }
+
+    #Name {
+        grid-column: 1 / 2;
+        grid-row: 1;
+    }
+
+    #Photo {
+        grid-column: 1 / 2;
+        grid-row: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 48%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+
+    #Photo img {
+        width: 240px;
+    }
+
+    #About {
+        grid-column: 1 / 2;
+        grid-row: 3;
+    }
+
+    #Experience {
+        grid-column: 1 / 2;
+        grid-row: 4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+        margin-left: 0px;
+    }
+
+    #Experience .job {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #Skills {
+        grid-column: 1 / 2;
+        grid-row: 5;
+    }
+
+    #Projects {
+        grid-column: 1 / 2;
+        grid-row: 6;
+    }
+
+    #Connect {
+        grid-column: 1 / 2;
+        grid-row: 7;
+    }
+
+    h1, h2, p, ul {
+        margin-left: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    p, ul {
+        font-size: 14px;
+    }
+
+    #Connect ul {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    #Connect img {
+        height: 25px;
+    }
+
+    #Experience {
+        grid-column: 1 / 2;
+        grid-row: 4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+        margin-left: 0;
+    }
+
+    #Experience .job {
+        display: grid;
+        grid-template-areas:
+            "job-title"
+            "job-location"
+            "job-dates"
+            "job-position"
+            "job-description";
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #Experience .job-header,
+    #Experience .job-details {
+        display: contents;
+    }
+
+    #Experience .job-title {
+        grid-area: job-title;
+        font-weight: var(--heading-3-font-weight);
+        color: var(--heading-3-light);
+    }
+
+    #Experience .job-location {
+        grid-area: job-location;
+        font-weight: var(--text-1-font-weight);
+        color: var(--heading-3-light);
+    }
+
+    #Experience .job-dates {
+        grid-area: job-dates;
+        text-align: left;
+        font-weight: var(--text-1-font-weight);
+        color: var(--heading-2-light);
+    }
+
+    body.dark-mode #Experience .job-dates {
+        color: var(--heading-3-dark);
+    }
+
+    #Experience .job-position {
+        grid-area: job-position;
+        font-weight: var(--text-1-font-weight);
+        color: var(--heading-3-light);
+    }
+
+    #Experience .job-description {
+        grid-area: job-description;
+        font-weight: var(--text-2-font-weight);
+        color: var(--text-1-light);
+        margin-left: 0;
+        margin-right: 20px;
+    }
+    
+}

@@ -15,13 +15,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Dosis:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+DE+Grund:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
 
     <nav>
-        <ul>
+        <button id="menu-toggle" class="hamburger">&#x2026;</button>
+        <ul id="nav-menu">
             <li><a href="#About">About</a></li>
             <li><a href="#Experience">Experience</a></li>
             <li><a href="#Skills">Skills</a></li>
@@ -29,6 +30,12 @@
             <li><a href="#Connect">Connect</a></li>
         </ul>
     </nav>
+
+    <div id="theme-toggle" class="theme-toggle">
+        <img id="dark-icon" src="./images/style_switch_light.png" alt="Dark mode toggle" style="display: block;">
+        <img id="light-icon" src="./images/style_switch_dark.png" alt="Light mode toggle" style="display: none;">
+        <audio id="toggle-sound" src="./sounds/switch.mp3" preload="auto"></audio>
+    </div>   
 
     <div class="wrapper">
 
@@ -122,7 +129,8 @@
         </section>
 
         <section id="Photo">
-            <img src="./images/daylight_photo.png" alt="A digital drawing of me: a woman with long, straight hair, wearing glasses and a green shirt, against a peach-colored background">
+            <img id="photo-light" src="./images/photo_light.png" alt="A digital drawing of me: a woman with long, straight hair, wearing glasses and a green shirt, against a peach-colored background">
+            <img id="photo-dark" src="./images/photo_dark.png" alt="A digital drawing of me: a woman with long, straight hair, wearing glasses and a green shirt, against a dark background">
         </section>
 
         <section id="Skills">
@@ -140,18 +148,22 @@
             <ul>
                 <li>
                     <a href="mailto:bolgovadl@gmail.com">
-                        <img src="./images/email_icon.png" alt="Email icon">
+                        <img id="email-icon-light" src="./images/email_icon_light.png" alt="Email icon">
+                        <img id="email-icon-dark" src="./images/email_icon_dark.png" alt="Email icon">
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/DariaBolgova">
-                        <img src="./images/github_icon.png" alt="Github icon">
+                        <img id="github-icon-light" src="./images/github_icon_light.png" alt="Github icon">
+                        <img id="github-icon-dark" src="./images/github_icon_dark.png" alt="Github icon">
                     </a>
                 </li>
             </ul>
         </section>
 
     </div>
+
+    <script src="./js/index.js"></script>
 
 </body>
 
