@@ -163,12 +163,12 @@ a {
     grid-row: 3;
 }
 
-#Skills {
+#Projects {
     grid-column: 1;
     grid-row: 4;
 }
 
-#Projects {
+#Skills {
     grid-column: 1;
     grid-row: 5;
 }
@@ -527,7 +527,7 @@ ul {
         width: 240px;
     }
 
-    #Experience, #Skills, #Projects, #Connect {
+    #Experience, #Projects, #Skills, #Connect {
         grid-column: 1 / 3;
         grid-row: auto;
     }
@@ -623,12 +623,12 @@ ul {
         margin-right: 20px;
     }
 
-    #Skills {
+    #Projects {
         grid-column: 1 / 2;
         grid-row: 5;
     }
 
-    #Projects {
+    #Skills {
         grid-column: 1 / 2;
         grid-row: 6;
     }
