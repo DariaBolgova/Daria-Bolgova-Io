@@ -1,4 +1,4 @@
-// Theme toggle
+// Theme toggle with localStorage persistence
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 const darkIcon = document.getElementById('dark-icon');
@@ -14,15 +14,35 @@ const githubIconDark = document.getElementById('github-icon-dark');
 const messageIconLight = document.getElementById('message-icon-light');
 const messageIconDark = document.getElementById('message-icon-dark');
 
-// Theme toggle click handler
+// Load theme from localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.classList.add(savedTheme);
+    if (savedTheme === 'dark-mode') {
+        darkIcon.style.display = 'none';
+        lightIcon.style.display = 'block';
+
+        profilePhotoLight.style.display = 'none';
+        profilePhotoDark.style.display = 'block';
+        emailIconLight.style.display = 'none';
+        emailIconDark.style.display = 'block';
+        githubIconLight.style.display = 'none';
+        githubIconDark.style.display = 'block';
+        messageIconLight.style.display = 'none';
+        messageIconDark.style.display = 'block';
+    }
+}
+
+// Theme toggle click handler with localStorage update
 themeToggle.addEventListener('click', function() {
     body.classList.toggle('dark-mode');
-    
+    const currentTheme = body.classList.contains('dark-mode') ? 'dark-mode' : '';
+    localStorage.setItem('theme', currentTheme);
+
     if (body.classList.contains('dark-mode')) {
         darkIcon.style.display = 'none';
         lightIcon.style.display = 'block';
 
-        // Change to dark mode images
         profilePhotoLight.style.display = 'none';
         profilePhotoDark.style.display = 'block';
         emailIconLight.style.display = 'none';
@@ -35,7 +55,6 @@ themeToggle.addEventListener('click', function() {
         darkIcon.style.display = 'block';
         lightIcon.style.display = 'none';
 
-        // Change to light mode images
         profilePhotoLight.style.display = 'block';
         profilePhotoDark.style.display = 'none';
         emailIconLight.style.display = 'block';
@@ -62,6 +81,13 @@ menuToggle.addEventListener('click', function() {
     navMenu.classList.toggle('show');
 });
 
+// Add keyboard accessibility for the hamburger menu
+menuToggle.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        navMenu.classList.toggle('show');
+    }
+});
+
 navLinks.forEach(link => {
     link.addEventListener('click', function() {
         navLinks.forEach(link => link.classList.remove('active'));
@@ -74,27 +100,29 @@ navLinks.forEach(link => {
 });
 
 // DOM Manipulation for Footer
+if (!document.querySelector('footer')) {
+    const footer = document.createElement('footer');
+    document.body.appendChild(footer);
 
-const footer = document.createElement('footer');
-document.body.appendChild(footer);
+    const today = new Date();
+    const thisYear = today.getFullYear();
 
-const today = new Date();
-const thisYear = today.getFullYear();
+    const copyright = document.createElement('p');
+    const copyrightSymbol = "\u00A9";
+    copyright.innerHTML = `${copyrightSymbol} Daria Bolgova ${thisYear}`;
 
-const copyright = document.createElement('p');
-copyright.innerHTML = `&copy; ${thisYear} Daria Bolgova`;
-
-footer.appendChild(copyright);
+    footer.appendChild(copyright);
+}
 
 // Skills
-
 const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Python", "Fortran"];
 const skillsSection = document.getElementById('Skills');
 const skillsList = skillsSection.querySelector('ul');
 
+// Clear existing list before adding new skills (if needed)
+skillsList.innerHTML = '';
 skills.forEach(skillName => {
     const skill = document.createElement('li');
     skill.innerText = skillName;
     skillsList.appendChild(skill);
 });
-
