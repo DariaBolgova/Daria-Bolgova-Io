@@ -83,8 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // DOM Manipulation for Footer
     const footer = document.createElement('footer');
     document.body.appendChild(footer);
-    footer.innerHTML = `&copy; Daria Bolgova ${new Date().getFullYear()}`;
-
+    const copyrightSymbol = "\u00A9";
+    footer.innerHTML = `${copyrightSymbol} Daria Bolgova ${thisYear}`;
+    
     // Skills
     const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Python", "Fortran"];
     const skillsSection = document.getElementById('Skills');
@@ -96,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const skill = document.createElement('li');
         skill.innerText = skillName;
         skillsList.appendChild(skill);
-    });
+    }); 
 
     // Messages section visibility update
     function checkMessageList() {
@@ -314,6 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
             leaveMessageSection.style.display = isVisible ? 'none' : 'block';
             messagesSection.style.display = isVisible ? 'none' : 'block';
         });
+      
     });
 
 });

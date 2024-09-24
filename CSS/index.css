@@ -823,6 +823,7 @@ body, nav {
         width: 90%;
     }
 
+
     #Experience, #Projects, #Skills, .connect-wrap {
         grid-column: 1 / 3;
         grid-row: auto;
