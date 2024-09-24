@@ -9,33 +9,44 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, Website, Portfolio, Project, Code the Dream">
     <meta name="author" content="Daria Bolgova">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Daria Bolgova's Portfolio Project">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Personal Website, Portfolio Project showcasing skills and projects in Nuclear Engineering and Web Development.">
+    <meta property="og:site_name" content="Daria Bolgova's Portfolio">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Daria Bolgova's Portfolio Project">
+    <meta name="twitter:description" content="Personal Website, Portfolio Project showcasing skills and projects in Nuclear Engineering and Web Development.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Dosis:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+DE+Grund:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
 
-    <nav>
-        <button id="menu-toggle" class="hamburger">&#x2026;</button>
-        <ul id="nav-menu">
-            <li><a href="#About">About</a></li>
-            <li><a href="#Experience">Experience</a></li>
-            <li><a href="#Skills">Skills</a></li>
-            <li><a href="#Projects">Projects</a></li>
-            <li><a href="#Connect">Connect</a></li>
+    <nav aria-label="Main Navigation">
+        <button id="menu-toggle" class="hamburger" aria-label="Navigation menu toggle" aria-controls="nav-menu" aria-expanded="false">&#x2026;</button>
+        <ul id="nav-menu" role="menu">
+            <li role="menuitem"><a href="#About">About</a></li>
+            <li role="menuitem"><a href="#Experience">Experience</a></li>
+            <li role="menuitem"><a href="#Projects">Projects</a></li>
+            <li role="menuitem"><a href="#Skills">Skills</a></li>
+            <li role="menuitem"><a href="#Connect">Connect</a></li>
         </ul>
     </nav>
 
-    <div id="theme-toggle" class="theme-toggle">
-        <img id="dark-icon" src="./images/style_switch_light.png" alt="Dark mode toggle" style="display: block;">
-        <img id="light-icon" src="./images/style_switch_dark.png" alt="Light mode toggle" style="display: none;">
-        <audio id="toggle-sound" src="./sounds/switch.mp3" preload="auto"></audio>
+    <div id="theme-toggle" class="theme-toggle" aria-live="polite" aria-label="Theme toggle">
+        <img id="dark-icon" src="./images/style_switch_light.png" alt="Enable dark mode" style="display: block;">
+        <img id="light-icon" src="./images/style_switch_dark.png" alt="Enable light mode" style="display: none;">
+        <audio id="toggle-sound" src="./sounds/switch.mp3" preload="auto" aria-hidden="true"></audio>
     </div>   
 
     <div class="wrapper">
@@ -44,17 +55,19 @@
             <h1>Daria Bolgova</h1>
         </section>
 
-        <section id="About">
-            <h2>About</h2>
+        <section id="About" aria-labelledby="about-heading">
+            <h2 id="about-heading">About</h2>
             <p>Hi! I am a PhD student and a Nuclear Engineer. I am learning coding with <a href="https://codethedream.org/">Code the Dream</a>.</p>
         </section>
 
-        <section id="Experience">
-            <h2>Experience</h2>
+        <section id="Experience" aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Experience</h2>
 
-            <div class="job">
+            <div class="job" aria-labelledby="job-title-1">
                 <div class="job-header">
-                    <div class="job-title"><a href="https://www.ws-corp.com/">Western Service Corporation</a> (WSC) / <a href="https://www.curtisswright.com/company">Curtiss-Wright</a></div>
+                    <div id="job-title-1" class="job-title">
+                        <a href="https://www.ws-corp.com/">Western Service Corporation</a> (WSC) / <a href="https://www.curtisswright.com/company">Curtiss-Wright</a>
+                    </div>
                     <div class="job-dates">May 2024 - August 2024</div>
                 </div>
                 <div class="job-details">
@@ -66,9 +79,9 @@
                 </div>
             </div>
 
-            <div class="job">
+            <div class="job" aria-labelledby="job-title-2">
                 <div class="job-header">
-                    <div class="job-title"><a href="https://inl.gov/">Idaho National Laboratory</a></div>
+                    <div id="job-title-2" class="job-title"><a href="https://inl.gov/">Idaho National Laboratory</a></div>
                     <div class="job-dates">June 2022 - August 2022</div>
                 </div>
                 <div class="job-details">
@@ -82,9 +95,9 @@
                 </div>
             </div>
 
-            <div class="job">
+            <div class="job" aria-labelledby="job-title-3">
                 <div class="job-header">
-                    <div class="job-title"><a href="https://ase-ec.ru/en/about/history/">JSC Atomproekt</a></div>
+                    <div id="job-title-3" class="job-title"><a href="https://ase-ec.ru/en/about/history/">JSC Atomproekt</a></div>
                     <div class="job-dates">June 2019 – August 2019</div>
                 </div>
                 <div class="job-details">
@@ -96,9 +109,9 @@
                 </div>
             </div>
 
-            <div class="job">
+            <div class="job" aria-labelledby="job-title-4">
                 <div class="job-header">
-                    <div class="job-title"><a href="https://www.rosenergoatom.ru/en/npp/structure/site-kursk-npp/">Kursk Nuclear Power Plant</a></div>
+                    <div id="job-title-4" class="job-title"><a href="https://www.rosenergoatom.ru/en/npp/structure/site-kursk-npp/">Kursk Nuclear Power Plant</a></div>
                     <div class="job-dates">June 2018 – July 2018</div>
                 </div>
                 <div class="job-details">
@@ -111,9 +124,9 @@
                 </div>
             </div>
 
-            <div class="job">
+            <div class="job" aria-labelledby="job-title-5">
                 <div class="job-header">
-                    <div class="job-title"><a href="https://www.rosenergoatom.ru/en/npp/beloyarsk-npp/">Beloyarsk Nuclear Power Plant</a></div>
+                    <div id="job-title-5" class="job-title"><a href="https://www.rosenergoatom.ru/en/npp/beloyarsk-npp/">Beloyarsk Nuclear Power Plant</a></div>
                     <div class="job-dates">June 2017 – July 2017</div>
                 </div>
                 <div class="job-details">
@@ -129,42 +142,72 @@
 
         </section>
 
-        <section id="Photo">
-            <img id="photo-light" src="./images/photo_light.png" alt="A digital drawing of me: a woman with long, straight hair, wearing glasses and a green shirt, against a peach-colored background">
-            <img id="photo-dark" src="./images/photo_dark.png" alt="A digital drawing of me: a woman with long, straight hair, wearing glasses and a green shirt, against a dark background">
+        <section id="Photo" aria-labelledby="photo-heading">
+            <h2 id="photo-heading" class="visually-hidden">Photo</h2>
+            <img id="photo-light" src="./images/photo_light.png" alt="A digital drawing of Daria: a woman with long, straight hair, wearing glasses and a green shirt, against a peach-colored background">
+            <img id="photo-dark" src="./images/photo_dark.png" alt="A digital drawing of Daria: a woman with long, straight hair, wearing glasses and a green shirt, against a dark background">
         </section>
 
-        <section id="Projects">
-            <h2>Projects</h2>
+        <section id="Projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
             <p>Will be updated soon!</p>
         </section>
 
-        <section id="Skills">
-            <h2>Skills</h2>
+        <section id="Skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
             <ul></ul>
         </section>
-        
-        <section id="Connect">
-            <h2>Connect</h2>
-            <ul>
-                <li>
-                    <a href="mailto:bolgovadl@gmail.com">
-                        <img id="email-icon-light" src="./images/email_icon_light.png" alt="Email icon">
-                        <img id="email-icon-dark" src="./images/email_icon_dark.png" alt="Email icon">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/DariaBolgova">
-                        <img id="github-icon-light" src="./images/github_icon_light.png" alt="Github icon">
-                        <img id="github-icon-dark" src="./images/github_icon_dark.png" alt="Github icon">
-                    </a>
-                </li>
-                <li>
-                    <img id="message-icon-light" src="./images/message_icon_light.png" alt="Message icon">
-                    <img id="message-icon-dark" src="./images/message_icon_dark.png" alt="Message icon">
-                </li>
-            </ul>
-        </section>
+
+        <div class="connect-wrap" aria-labelledby="connect">
+
+            <section id="Connect" aria-labelledby="connect-heading">
+                <h2 id="connect-heading">Connect</h2>
+                <ul>
+                    <li>
+                        <a href="mailto:bolgovadl@gmail.com">
+                            <img id="email-icon-light" src="./images/email_icon_light.png" alt="Email icon" aria-label="Email Daria">
+                            <img id="email-icon-dark" src="./images/email_icon_dark.png" alt="Email icon" aria-label="Email Daria">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/DariaBolgova">
+                            <img id="github-icon-light" src="./images/github_icon_light.png" alt="Github icon" aria-label="Visit Daria's Github profile">
+                            <img id="github-icon-dark" src="./images/github_icon_dark.png" alt="Github icon" aria-label="Visit Daria's Github profile">
+                        </a>
+                    </li>
+                    <li>
+                        <img id="message-icon-light" src="./images/message_icon_light.png" alt="Message icon" aria-label="Leave a message for Daria">
+                        <img id="message-icon-dark" src="./images/message_icon_dark.png" alt="Message icon" aria-label="Leave a message for Daria">
+                    </li>
+                </ul>
+            </section>
+
+            <section id="Leave_message" aria-labelledby="leave-message-heading">
+                <h2 id="leave-message-heading">Leave a Message</h2>
+
+                <form name="leave_message" aria-labelledby="leave-message-heading">
+                    <label for="name">Name:</label>
+                    <input type="text" name="usersName" id="name" aria-required="true" required><br>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" name="usersEmail" id="email" aria-required="true" required><br>
+                  
+                    <label for="message">Message:</label>
+                    <textarea name="usersMessage" id="message" aria-required="true" required></textarea><br>
+                    
+                    <button type="submit" aria-label="Submit message">Submit</button>
+                </form>
+
+                <ul></ul>
+
+            </section>
+            
+            <section id="Messages" aria-labelledby="messages-heading">
+                <h2 id="messages-heading">Messages</h2>
+                <ul></ul>
+            </section>
+
+        </div>
 
     </div>
 

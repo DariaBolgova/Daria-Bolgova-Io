@@ -8,14 +8,18 @@
     --nav-hover-light: #db0b00;
     --heading-1-light: #db0b00;
     --heading-2-light: #44772c;
+    --text-1-light: #3b1d12;
+    --text-2-light: #265912;
     --job-heading-light: #7e2c00;
     --job-dates-light: #44772c;
     --job-location-light: #6e2700;
     --job-position-light: #541d00;
-    --text-1-light: #3b1d12;
-    --text-2-light: #265912;
     --links-light: #db0b00;
     --hover-light: #255a00;
+    --message-background-light: #ffded3;
+    --message-input-background-light: #ffffff;
+    --message-button-hover-light: #8bb478;
+    --message-border-light: #ffded3;
 
     /* Dark style */
     --background-dark: #010010;
@@ -23,14 +27,18 @@
     --nav-hover-dark: #79b3ff;
     --heading-1-dark: #79b3ff;
     --heading-2-dark: #a6e3fd;
+    --text-1-dark: #f2e7b9;
+    --text-2-dark: #9ffef3;
     --job-heading-dark: #b2a6fc;
     --job-dates-dark: #a6e3fd;
     --job-location-dark: #b9d2fe;
     --job-position-dark: #c0b7ff;
-    --text-1-dark: #f2e7b9;
-    --text-2-dark: #9ffef3;
     --links-dark: #79ebff;
     --hover-dark: #13ff8d;
+    --message-background-dark: #011836;
+    --message-input-background-dark: #011127;
+    --button-hover-dark: #391b9a;
+    --message-border-dark: #011125;
 
     /* Fonts */
 
@@ -43,6 +51,7 @@
     --heading-2-font-size: 26px;
     --job-font-weight: 700;
     --job-font-size: 20px;
+    --message-heading-font-size: 22px;
 
     --text-font: "Wittgenstein", serif;
     --text-1-font-weight: 600;
@@ -50,6 +59,8 @@
     --link-font-weight: 700;
     --text-2-font-weight: 700;
     --text-2-font-size: 15px;
+    --message-font-size: 14px;
+    --message-font-weight: 400;
 
     /* Indices */
 
@@ -57,16 +68,42 @@
     --z-index-hamburger: 1001;
     --z-index-toggle: 1002;
     --z-index-menu: 1003;
+    --z-index-message: 1004;
 }
 
 * {
     box-sizing: border-box;
 }
 
-
 /* Desktop Style */
 
 /* Light Mode */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 1006;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}
 
 /* Background Color */
 body {
@@ -241,25 +278,25 @@ a {
     grid-row: 5;
 }
 
-#Connect {
+.connect-wrap {
     grid-column: 1;
     grid-row: 6;
 }
 
 #Photo {
     grid-column: 2;
-    grid-row: 1 / 5;
+    grid-row: 1 / 7;
     display: flex;
     justify-content: center;
     position: fixed;
     top: 360px;
     right: 7%;
     transform: translateY(-50%);
-    width: calc(100% - 80%);
+    width: calc(100% - 75%);
 }
 
 #Photo img {
-    width: 320px;
+    width: calc(220px + 40%);
     height: auto;
 }
 
@@ -274,6 +311,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 10px;
 }
 
 #Experience .job-details {
@@ -345,6 +383,176 @@ a {
 #Connect img {
     height: 28px;
     width: auto;
+}
+
+#message-icon-light, #message-icon-dark {
+    cursor: pointer;
+    position: relative;
+    z-index: var(--z-index-message);
+}
+
+.connect-wrap {
+    position: relative;
+    transition: width 0.5s ease;
+}
+
+#Leave_message {
+    display: none;
+    position: absolute;
+    bottom: 35px;
+    left: 290px;
+    width: 350px;
+    height: 350px;
+    background-color: transparent;
+    padding: 20px 20px 20px 0;
+    z-index: var(--z-index-message);
+}
+
+#Messages {
+    display: none;
+    position: absolute;
+    bottom: 35px;
+    left: 640px;
+    width: 350px;
+    height: 350px;
+    background-color: transparent;
+    padding: 20px 20px 20px 0;
+    z-index: var(--z-index-message);
+}
+
+#Leave_message h2, #Messages h2 {
+    color: var(--text-1-light);
+    font-size: var(--message-heading-font-size);
+    width: 305px;
+    text-align: center;
+    margin: 5px 5px 7px 5px;
+}
+
+#Leave_message label, #Messages label {
+    display: block;
+    color: var(--text-1-light);
+    font-family: var(--heading-font);
+    font-weight: var(--message-font-weight);
+    font-size: var(--text-1-font-size);
+    margin: 10px 0 5px 0;
+    padding: 0px;
+}
+
+#Leave_message input[type="text"],
+#Leave_message input[type="email"],
+#Leave_message textarea,
+#Messages textarea {
+    width: var(--message-input-width, 305px);
+    padding: 5px;
+    border: 1px solid var(--message-border-light);
+    border-radius: 5px;
+    background-color: var(--message-input-background-light);
+    box-shadow: inset 0 1px 3px rgba(156, 156, 156, 0.3);
+
+    color: var(--text-1-light);
+    font-family: var(--text-font);
+    font-weight: var(--message-font-weight);
+    font-size: var(--message-font-size);
+}
+
+#Leave_message textarea,
+#Messages textarea {
+    height: 70px;
+    resize: none;
+}
+
+#Leave_message button[type="submit"],
+#Messages button[type="edit"],
+#Messages button[type="remove"],
+#Messages button[type="save"],
+#Messages button[type="cancel"] {
+    background-color: transparent;
+    color: var(--text-1-light);
+    font-family: var(--heading-font);
+    font-size: var(--text-1-font-size);
+    padding: 5px;
+    border: 1px solid var(--text-1-light);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 70px;
+    margin: 5px 5px 10px 0;
+}
+
+#Leave_message button[type="submit"]:hover,
+#Messages button[type="edit"]:hover,
+#Messages button[type="remove"]:hover,
+#Messages button[type="save"]:hover,
+#Messages button[type="cancel"]:hover {
+    background-color: var(--message-button-hover-light);
+}
+
+#Leave_message button[type="submit"]:active,
+#Messages button[type="edit"]:active,
+#Messages button[type="remove"]:active,
+#Messages button[type="save"]:active,
+#Messages button[type="cancel"]:active {
+    background-color: var(--message-button-hover-light);
+}
+
+#Messages ul {
+    list-style: none;
+    padding: 0 10px 10px 0;
+    margin: 0;
+    max-height: 275px;
+    overflow-y: auto;
+}
+
+#Messages ul::-webkit-scrollbar {
+    width: 10px;
+}
+
+#Messages ul::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.33);
+    border-radius: 5px;
+}
+
+#Messages ul::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#Messages p {
+    padding: 5px 0;
+    margin: 0;
+}
+
+#Messages .user-name {
+    font-family: var(--heading-font);
+    font-weight: var(--message-font-weight);
+    font-size: var(--text-1-font-size);
+}
+
+#Messages .user-message {
+    font-weight: var(--message-font-weight);
+    font-size: var(--message-font-size);
+    font-style: italic;
+}
+
+#Leave_message::before {
+    content: '';
+    position: absolute;
+    width: var(--before-width, 0%);
+    height: 100%;
+    background-color: var(--message-background-light);
+    border: 2px solid var(--message-border-light);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin: -20px;
+    z-index: -1;
+}
+
+#Leave_message::after {
+    content: '';
+    position: absolute;
+    top: 320px;
+    left: -55px;
+    border-width: 10px 18px;
+    border-style: solid;
+    border-color: transparent var(--message-background-light) transparent transparent;
 }
 
 /* Footer */
@@ -434,7 +642,61 @@ body.dark-mode #Experience .job-position {
     color: var(--job-position-dark);
 }
 
-body.dark-mode footer p {
+body.dark-mode #Leave_message::before {
+    background-color: var(--message-background-dark);
+    border: 1px solid var(--message-border-dark);
+    box-shadow: 0 5px 15px rgba(205, 238, 255, 0.1);
+}
+
+body.dark-mode #Leave_message::after {
+    border-color: transparent var(--message-background-dark) transparent transparent;
+}
+
+body.dark-mode #Leave_message label {
+    color: var(--text-1-dark);
+}
+
+body.dark-mode #Leave_message input[type="text"],
+body.dark-mode #Leave_message input[type="email"],
+body.dark-mode #Leave_message textarea,
+body.dark-mode #Messages textarea {
+    border: 1px solid var(--message-border-dark);
+    background-color: var(--message-input-background-dark);
+    box-shadow: inset 0 1px 3px rgba(205, 238, 255, 0.1);
+    color: var(--text-1-dark);
+}
+
+body.dark-mode #Leave_message button[type="submit"],
+body.dark-mode #Messages button[type="edit"],
+body.dark-mode #Messages button[type="remove"],
+body.dark-mode #Messages button[type="save"],
+body.dark-mode #Messages button[type="cancel"] {
+    color: var(--text-1-dark);
+    border: 1px solid var(--text-1-dark);
+}
+
+body.dark-mode #Leave_message button[type="submit"]:hover,
+body.dark-mode #Messages button[type="edit"]:hover,
+body.dark-mode #Messages button[type="remove"]:hover,
+body.dark-mode #Messages button[type="save"]:hover,
+body.dark-mode #Messages button[type="cancel"]:hover {
+    background-color: var(--button-hover-dark);
+}
+
+body.dark-mode #Leave_message button[type="submit"]:active,
+body.dark-mode #Messages button[type="edit"]:active,
+body.dark-mode #Messages button[type="remove"]:active,
+body.dark-mode #Messages button[type="save"]:active,
+body.dark-mode #Messages button[type="cancel"]:active {
+    background-color: var(--button-hover-dark);
+}
+
+body.dark-mode #Leave_message h2, 
+body.dark-mode #Messages h2 {
+    color: var(--text-1-dark);
+}
+
+body.dark-mode footer {
     color: var(--text-2-dark);
 }
 
@@ -508,7 +770,11 @@ body, nav {
     nav ul.show li a.active {
         background-color: var(--hover-light);
         color: var(--background-light);
-    }   
+    } 
+
+    a, nav ul li a {
+        transition: background-color 0.6s ease, color 0.6s ease;
+    }
 
     body.dark-mode nav ul.show {
         background-color: var(--background-dark);
@@ -531,9 +797,9 @@ body, nav {
 
     .wrapper {
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
+        grid-template-columns: 60% 40%;
         grid-template-rows: auto;
-        grid-gap: 20px;
+        grid-gap: 1px;
     }
 
     #Name, #About {
@@ -543,22 +809,21 @@ body, nav {
 
     #Photo {
         grid-column: 2;
-        grid-row: 1 / 4;
+        grid-row: 1 / 5;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
-        top: 45%;
-        right: -35%;
+        top: 50%;
         transform: translateY(-50%);
-        width: calc(100% - 80%);
+        width: 100%;
     }
 
     #Photo img {
-        width: 240px;
+        width: 90%;
     }
 
-    #Experience, #Projects, #Skills, #Connect {
+    #Experience, #Projects, #Skills, .connect-wrap {
         grid-column: 1 / 3;
         grid-row: auto;
     }
@@ -572,21 +837,17 @@ body, nav {
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 2.2rem;
     }
 
     h2 {
-        font-size: 24px;
+        font-size: 1.5rem;
         margin-top: 0px;
         margin-bottom: 0px;
     }
 
     p, ul {
-        font-size: 14px;
-    }
-
-    a, nav ul li a {
-        transition: background-color 0.6s ease, color 0.6s ease;
+        font-size: 0.875rem;
     }
 
     #Experience .job {
@@ -595,20 +856,123 @@ body, nav {
         margin-right: 40px;
     }
 
-    #Connect ul {
-        margin-top: 15px;
-        justify-content: center;
+    #Experience .job-title,
+    #Experience .job-dates,
+    #Experience .job-location {
+        font-size: 1.1rem;
+    }
+    
+    #Experience .job-position {
+        font-size: 1rem;
+    }
+
+    .connect-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 10px;
+        margin-bottom: -20px;
+    }
+
+    #Connect {
+        grid-column: 1 / 3;
+        grid-row: 1;
     }
 
     #Connect img {
         height: 25px;
     }
 
+    #Leave_message {
+        display: block;
+        position: relative;
+        grid-column: 1 / 2;
+        grid-row: 2;
+        width: 100%;
+        left: 30px;
+        margin: 20px 0 0 0;
+        padding: 20px 20px 0 20px;
+        background-color: var(--message-background-light);
+        border: 1px solid var(--message-border-light);
+    }
+
+    #Messages {
+        display: block;
+        position: relative;
+        grid-column: 2 / 3;
+        grid-row: 2;
+        width: 100%;
+        left: 10px;
+        margin: 20px 0 0 0;
+        padding: 20px 5px 0 20px;
+        background-color: var(--message-background-light);
+        border: 1px solid var(--message-border-light);
+    }
+
+    body.dark-mode #Leave_message,
+    body.dark-mode #Messages {
+        background-color: var(--message-background-dark);
+        border: 1px solid var(--message-border-dark);
+    }
+
+    #Leave_message h2, #Messages h2 {
+        font-size: 1.5rem;
+        width: 100%;
+    }
+
+    #Messages h2 {
+        padding: 0 15px 0 0;
+    }
+
+    #Leave_message label, #Messages label {
+        font-size: 0.95rem;
+    }
+
+    #Leave_message input[type="text"],
+    #Leave_message input[type="email"],
+    #Leave_message textarea,
+    #Messages textarea {
+        width: 100%;
+        font-size: 0.875rem;
+    }
+
+    #Leave_message button[type="submit"],
+    #Messages button[type="edit"],
+    #Messages button[type="remove"],
+    #Messages button[type="save"],
+    #Messages button[type="cancel"] {
+        font-size: var(--text-1-font-size);
+        padding: 6px;
+        width: 80px;
+        margin-top: 10px;
+    }
+
+    #Messages .user-name {
+        font-size: 0.95rem;
+    }
+    
+    #Messages .user-message {
+        font-size: 0.85rem;
+    }
+
+    #Messages ul {
+        max-height: calc(100% - 50px);
+    }    
+
+    #Leave_message::before, #Messages::before {
+        content: '';
+        display: none;
+    }
+
+    #Leave_message::after, #Messages::after {
+        display: none;
+    }
+    
 }
 
 /* Mobile Style */
 
-@media (max-width: 500px) {
+@media (max-width: 499px) {
 
     html, body {
         overflow: auto;
@@ -640,7 +1004,7 @@ body, nav {
     }
 
     #Photo img {
-        width: 240px;
+        width: 280px;
     }
 
     #About {
@@ -672,7 +1036,7 @@ body, nav {
         grid-row: 6;
     }
 
-    #Connect {
+    .connect-wrap {
         grid-column: 1 / 2;
         grid-row: 7;
     }
@@ -681,33 +1045,24 @@ body, nav {
         margin-left: 20px;
     }
 
-    #Skills ul {
-        margin-left: 35px;
-    }
-
     h1 {
-        font-size: 30px;
+        font-size: 2.2rem;
         margin-top: 0px;
         margin-bottom: 0px;
     }
 
     h2 {
-        font-size: 24px;
+        font-size: 1.5rem;
         margin-top: 0px;
         margin-bottom: 0px;
     }
 
     p, ul {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
-    #Connect ul {
-        margin-top: 15px;
-        justify-content: center;
-    }
-
-    #Connect img {
-        height: 25px;
+    #Skills ul {
+        margin-left: 35px;
     }
 
     #Experience {
@@ -738,25 +1093,145 @@ body, nav {
 
     #Experience .job-title {
         grid-area: job-title;
+        font-size: 1.1rem;
     }
 
     #Experience .job-location {
         grid-area: job-location;
+        font-size: 1.1rem;
     }
 
     #Experience .job-dates {
         grid-area: job-dates;
         text-align: left;
+        font-size: 1.1rem;
     }
 
     #Experience .job-position {
         grid-area: job-position;
+        font-size: 1rem;
     }
 
     #Experience .job-description {
         grid-area: job-description;
         margin-left: 0;
         margin-right: 20px;
+    }
+
+    .connect-wrap {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        margin-bottom: -20px;
+    }
+
+    #Connect {
+        grid-column: 1 / 2;
+        grid-row: 1;
+        margin-bottom: 15px;
+    }
+
+    #Leave_message {
+        display: block;
+        position: relative;
+        grid-column: 1 / 2;
+        grid-row: 2;
+        width: 90%;
+        height: 360px;
+        left: 30px;
+        margin: 20px 0 0 0;
+        padding: 20px 20px 0 20px;
+        background-color: var(--message-background-light);
+        border: 1px solid var(--message-border-light);
+    }
+
+    #Messages {
+        display: block;
+        position: relative;
+        grid-column: 1 / 2;
+        grid-row: 3;
+        width: 90%;
+        height: 400px;
+        left: 30px;
+        margin: 0 0 0 0;
+        padding: 20px 5px 0 20px;
+        background-color: var(--message-background-light);
+        border: 1px solid var(--message-border-light);
+    }  
+
+    body.dark-mode #Leave_message,
+    body.dark-mode #Messages {
+        background-color: var(--message-background-dark);
+        border: 1px solid var(--message-border-dark);
+    }
+
+    #Connect ul {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    #Connect img {
+        height: 25px;
+    }
+
+    #Leave_message h2, #Messages h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    #Leave_message label, #Messages label {
+        font-size: 1rem;
+        margin: 5px 0 5px 0;
+    }
+
+    #Leave_message input[type="text"],
+    #Leave_message input[type="email"],
+    #Leave_message textarea,
+    #Messages textarea {
+        width: 100%;
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    #Leave_message button[type="submit"],
+    #Messages button[type="edit"],
+    #Messages button[type="remove"],
+    #Messages button[type="save"],
+    #Messages button[type="cancel"] {
+        font-size: 1.05rem;
+        padding: 6px;
+        width: 80px;
+        margin: 5px 5px 10px 0;
+    }
+
+    #Messages .user-name {
+        font-size: 1rem;
+    }
+    
+    #Messages .user-message {
+        font-size: 0.85rem;
+    }
+
+    #Messages ul {
+        max-height: calc(100% - 50px);
+    }
+
+    #Leave_message::before, #Messages::before {
+        content: '';
+        display: none;
+    }
+
+    #Leave_message::after, #Messages::after {
+        display: none;
+    }
+
+    @media (max-width: 400px) {
+
+        #Photo img {
+            width: 70%;
+        }
+    
     }
     
 }
