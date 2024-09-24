@@ -163,12 +163,12 @@ a {
     grid-row: 3;
 }
 
-#Skills {
+#Projects {
     grid-column: 1;
     grid-row: 4;
 }
 
-#Projects {
+#Skills {
     grid-column: 1;
     grid-row: 5;
 }
@@ -285,6 +285,13 @@ a {
     width: 40px;
 }
 
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
 /* Dark Mode */
 
 body.dark-mode {
@@ -383,6 +390,14 @@ ul {
     margin-left: 70px;
     padding: 0;
     list-style-type: none;
+    font-family: var(--text-font);
+    font-weight: var(--text-1-font-weight);
+    font-size: var(--text-1-font-size);
+}
+
+#Skills ul {
+    list-style-type: square;
+    margin-left: 85px;
 }
 
 @media (max-width: 900px) {
@@ -512,13 +527,17 @@ ul {
         width: 240px;
     }
 
-    #Experience, #Skills, #Projects, #Connect {
+    #Experience, #Projects, #Skills, #Connect {
         grid-column: 1 / 3;
         grid-row: auto;
     }
 
     h1, h2, p, ul {
         margin-left: 40px;
+    }
+
+    #Skills ul {
+        margin-left: 55px;
     }
 
     h1 {
@@ -604,12 +623,12 @@ ul {
         margin-right: 20px;
     }
 
-    #Skills {
+    #Projects {
         grid-column: 1 / 2;
         grid-row: 5;
     }
 
-    #Projects {
+    #Skills {
         grid-column: 1 / 2;
         grid-row: 6;
     }
@@ -621,6 +640,10 @@ ul {
 
     h1, h2, p, ul {
         margin-left: 20px;
+    }
+
+    #Skills ul {
+        margin-left: 35px;
     }
 
     h1 {

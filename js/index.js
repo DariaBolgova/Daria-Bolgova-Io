@@ -67,3 +67,30 @@ navLinks.forEach(link => {
     });
 });
 
+// DOM Manipulation for Footer
+
+const footer = document.createElement('footer');
+document.body.appendChild(footer);
+
+const today = new Date();
+const thisYear = today.getFullYear();
+
+const copyright = document.createElement('p');
+const copyrightSymbol = "\u00A9";
+copyright.innerHTML = `${copyrightSymbol} Daria Bolgova ${thisYear}`;
+
+footer.appendChild(copyright);
+
+// Skills
+
+const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Python", "Fortran"];
+
+const skillsSection = document.getElementById('Skills');
+const skillsList = skillsSection.querySelector('ul');
+
+skills.forEach(skillName => {
+    const skill = document.createElement('li');
+    skill.innerText = skillName;
+    skillsList.appendChild(skill);
+});
+
