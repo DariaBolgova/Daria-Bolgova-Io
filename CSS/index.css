@@ -19,7 +19,7 @@
     --message-background-light: #ffded3;
     --message-input-background-light: #ffffff;
     --message-button-hover-light: #8bb478;
-    --message-border-light: #ffded3;
+    --message-border-light: #541d00;
 
     /* Dark style */
     --background-dark: #010010;
@@ -38,7 +38,7 @@
     --message-background-dark: #011836;
     --message-input-background-dark: #011127;
     --button-hover-dark: #391b9a;
-    --message-border-dark: #011125;
+    --message-border-dark: #c0b7ff;
 
     /* Fonts */
 
@@ -351,9 +351,11 @@ a {
 }
 
 #Experience .job-description {
-    margin-left: 0px;
+    margin-left: 15px;
+    list-style-type: square;
 }
 
+#Projects ul,
 #Skills ul {
     list-style-type: square;
     margin-left: 85px;
@@ -447,7 +449,6 @@ a {
     border: 1px solid var(--message-border-light);
     border-radius: 5px;
     background-color: var(--message-input-background-light);
-    box-shadow: inset 0 1px 3px rgba(156, 156, 156, 0.3);
 
     color: var(--text-1-light);
     font-family: var(--text-font);
@@ -540,19 +541,8 @@ a {
     background-color: var(--message-background-light);
     border: 2px solid var(--message-border-light);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     margin: -20px;
     z-index: -1;
-}
-
-#Leave_message::after {
-    content: '';
-    position: absolute;
-    top: 320px;
-    left: -55px;
-    border-width: 10px 18px;
-    border-style: solid;
-    border-color: transparent var(--message-background-light) transparent transparent;
 }
 
 /* Footer */
@@ -645,7 +635,6 @@ body.dark-mode #Experience .job-position {
 body.dark-mode #Leave_message::before {
     background-color: var(--message-background-dark);
     border: 1px solid var(--message-border-dark);
-    box-shadow: 0 5px 15px rgba(205, 238, 255, 0.1);
 }
 
 body.dark-mode #Leave_message::after {
@@ -662,7 +651,6 @@ body.dark-mode #Leave_message textarea,
 body.dark-mode #Messages textarea {
     border: 1px solid var(--message-border-dark);
     background-color: var(--message-input-background-dark);
-    box-shadow: inset 0 1px 3px rgba(205, 238, 255, 0.1);
     color: var(--text-1-dark);
 }
 
@@ -832,6 +820,7 @@ body, nav {
         margin-left: 40px;
     }
 
+    #Projects ul,
     #Skills ul {
         margin-left: 55px;
     }
@@ -865,6 +854,10 @@ body, nav {
     #Experience .job-position {
         font-size: 1rem;
     }
+
+    #Experience .job-description {
+        margin-left: 15px;
+    }    
 
     .connect-wrap {
         display: grid;
@@ -1061,6 +1054,7 @@ body, nav {
         font-size: 0.875rem;
     }
 
+    #Projects ul,
     #Skills ul {
         margin-left: 35px;
     }
@@ -1114,7 +1108,7 @@ body, nav {
 
     #Experience .job-description {
         grid-area: job-description;
-        margin-left: 0;
+        margin-left: 15px;
         margin-right: 20px;
     }
 
