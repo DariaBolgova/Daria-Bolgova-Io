@@ -83,8 +83,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // DOM Manipulation for Footer
     const footer = document.createElement('footer');
     document.body.appendChild(footer);
+
+    const today = new Date();
+    const thisYear = today.getFullYear();
+
+    const copyright = document.createElement('p');
     const copyrightSymbol = "\u00A9";
-    footer.innerHTML = `${copyrightSymbol} Daria Bolgova ${thisYear}`;
+    copyright.innerHTML = `${copyrightSymbol} Daria Bolgova ${thisYear}`;
+
+    footer.appendChild(copyright);
 
     // Skills
     const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Python", "Fortran"];
