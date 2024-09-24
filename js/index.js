@@ -325,3 +325,49 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+// GitHub API
+
+fetch('https://api.github.com/users/DariaBolgova/repos')
+
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+
+  .then(data => {
+    const repositories = data;
+    const projectSection = document.getElementById('Projects');
+
+    let projectList = projectSection.querySelector('ul');
+    if (!projectList) {
+      projectList = document.createElement('ul');
+      projectSection.appendChild(projectList);
+    }
+
+    projectSection.querySelector('p').style.display = 'none';
+
+    for (let i = 0; i < repositories.length; i++) {
+      const project = document.createElement('li');
+
+      const projectLink = document.createElement('a');
+      projectLink.href = repositories[i].html_url;
+      projectLink.target = '_blank';
+      projectLink.innerText = repositories[i].name;
+
+      project.appendChild(projectLink);
+
+      projectList.appendChild(project);
+    }
+  })
+
+  .catch(error => {
+    console.error('Sorry, a problem with the fetch operation occured:', error);
+    const projectSection = document.getElementById('Projects');
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'GitHub repositiries can not be loaded. Please try again later.';
+    projectSection.appendChild(errorMessage);
+  });
+

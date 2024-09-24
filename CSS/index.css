@@ -351,9 +351,11 @@ a {
 }
 
 #Experience .job-description {
-    margin-left: 0px;
+    margin-left: 15px;
+    list-style-type: square;
 }
 
+#Projects ul,
 #Skills ul {
     list-style-type: square;
     margin-left: 85px;
@@ -832,6 +834,7 @@ body, nav {
         margin-left: 40px;
     }
 
+    #Projects ul,
     #Skills ul {
         margin-left: 55px;
     }
@@ -865,6 +868,10 @@ body, nav {
     #Experience .job-position {
         font-size: 1rem;
     }
+
+    #Experience .job-description {
+        margin-left: 15px;
+    }    
 
     .connect-wrap {
         display: grid;
@@ -1061,6 +1068,7 @@ body, nav {
         font-size: 0.875rem;
     }
 
+    #Projects ul,
     #Skills ul {
         margin-left: 35px;
     }
@@ -1114,7 +1122,7 @@ body, nav {
 
     #Experience .job-description {
         grid-area: job-description;
-        margin-left: 0;
+        margin-left: 15px;
         margin-right: 20px;
     }
 
