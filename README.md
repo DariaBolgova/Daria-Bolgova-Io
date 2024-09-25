@@ -13,3 +13,5 @@ Daria Bolgova
 - 📫 How to reach me: bolgovadl@gmail.com
 
 - ⚡ Fun fact: I dreamed of being an actress as a child, but now I struggle with even role-playing in D&D!
+
+[My Open API Project](https://github.com/DariaBolgova/ARTIC-open-API-project)
